@@ -6,18 +6,23 @@ const square = document.getElementById("square");
 const btnInCircle = document.getElementById("e_btn");
 const range = document.getElementById("range");
 const rangeSpan = document.getElementById("range-span");
-
-console.dir(square);
+const circleHeight = document.getElementById("circle").offsetHeight;
+const circleWidth = document.getElementById("circle").offsetWidth;
+const squareHeight = document.getElementById("square").offsetHeight;
+const squareWidth = document.getElementById("square").offsetWidth;
 
 button.addEventListener("click", () => {
   square.style.backgroundColor = input.value;
 });
 
-const logger = function (event) {
-  rangeSpan.textContent = event.target.value;
+btnInCircle.classList.add("display-none");
+
+const WidthAndHeight = function () {
+  circle.style.width = range.value + "%";
+  circle.style.height = range.value + "%";
 };
 
-btnInCircle.classList.add("display-none");
-range.addEventListener("input", logger);
-
-console.log(btnInCircle);
+range.addEventListener("input", function (event) {
+  rangeSpan.textContent = event.target.value;
+  WidthAndHeight();
+});
